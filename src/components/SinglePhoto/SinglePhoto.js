@@ -5,6 +5,7 @@ import {Link as RouterLink} from "react-router-dom";
 import Link from '@material-ui/core/Link';
 import Button from '@material-ui/core/Button';
 import {deletePhoto, fetchUserPhotos} from "../../store/actions/photosActions";
+import SimpleModal from "../Modal/Modal";
 
 const useStyles = makeStyles(() => ({
     card: {
@@ -31,7 +32,9 @@ const SinglePhoto = props => {
 
     return (
         <div className={classes.card}>
-            <img src={props.src} alt="nature" className={classes.img}/>
+            <SimpleModal
+                src={props.src}
+            />
             <h3>{props.title}</h3>
             <p><b>Author: </b>
                 <Link component={RouterLink} className={classes.history}
@@ -45,6 +48,7 @@ const SinglePhoto = props => {
             >
                 Delete Photo
             </Button> : null}
+
         </div>
     );
 };

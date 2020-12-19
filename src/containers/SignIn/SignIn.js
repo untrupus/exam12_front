@@ -66,13 +66,13 @@ const SignIn = () => {
         dispatch(loginUser({...state}));
     };
 
-    // const getFieldError = fieldName => {
-    //     try {
-    //         return error.errors[fieldName].message;
-    //     } catch(e) {
-    //         return undefined;
-    //     }
-    // };
+    const getFieldError = fieldName => {
+        try {
+            return error.errors[fieldName].message;
+        } catch(e) {
+            return undefined;
+        }
+    };
 
     return (
         <Container component="main" maxWidth="xs">
@@ -96,6 +96,8 @@ const SignIn = () => {
                         id="email"
                         label="Email"
                         name="email"
+                        error={!!getFieldError("email")}
+                        helperText={getFieldError("email")}
                         value={state.email}
                         onChange={inputChangeHandler}
                         autoComplete="email"
@@ -109,6 +111,8 @@ const SignIn = () => {
                         label="Password"
                         type="password"
                         id="password"
+                        error={!!getFieldError("password")}
+                        helperText={getFieldError("password")}
                         value={state.password}
                         onChange={inputChangeHandler}
                         autoComplete="current-password"

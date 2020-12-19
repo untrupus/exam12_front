@@ -9,7 +9,7 @@ import MyPhotos from "./containers/MyPhotos/MyPhotos";
 import {useSelector} from "react-redux";
 
 const ProtectedRoute = ({isAllowed, ...props}) => {
-    return isAllowed ? <Route {...props} /> : <Redirect to="/signin" />
+    return isAllowed ? <Route {...props} /> : <Redirect to="/" />
 };
 
 function App() {
@@ -19,8 +19,18 @@ function App() {
             <Header/>
             <Switch>
                 <Route path="/" exact component={Main}/>
-                <Route path="/signup" exact component={SignUp}/>
-                <Route path="/signin" exact component={SignIn}/>
+                <ProtectedRoute
+                    path="/signup"
+                    exact
+                    component={SignUp}
+                    isAllowed={!user}
+                />
+                <ProtectedRoute
+                    path="/signin"
+                    exact
+                    component={SignIn}
+                    isAllowed={!user}
+                />
                 <ProtectedRoute
                     path="/addphoto"
                     exact
