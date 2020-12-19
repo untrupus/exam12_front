@@ -7,6 +7,7 @@ import {
     ADD_PHOTO_ERROR,
     FETCH_USER_PHOTOS_ERROR,
     FETCH_USER_PHOTOS_SUCCESS,
+    DELETE_PHOTO_ERROR
 } from "../actionTypes";
 
 const fetchPhotosSuccess = value => {
@@ -62,3 +63,17 @@ export const fetchUserPhotos = id => {
         }
     };
 };
+
+const deletePhotoError = error => {
+    return {type: DELETE_PHOTO_ERROR, error};
+};
+
+export const deletePhoto = id => {
+    return async (dispatch) => {
+        try {
+            await axiosAPI.delete('/photos/' + id);
+        } catch (e) {
+            dispatch(deletePhotoError(e));
+        }
+    };
+}

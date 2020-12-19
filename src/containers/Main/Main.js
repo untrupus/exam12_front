@@ -5,7 +5,7 @@ import {makeStyles} from '@material-ui/core/styles';
 import Container from "@material-ui/core/Container";
 import SinglePhoto from "../../components/SinglePhoto/SinglePhoto";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
     main: {
         display: "flex",
         flexWrap: "wrap",
@@ -31,6 +31,7 @@ const Main = () => {
                 src={'http://localhost:8000/uploads/' + photo.image}
                 author={photo.user.displayName}
                 user={photo.user._id}
+                permit={false}
             />
         )
     });
