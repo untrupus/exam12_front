@@ -15,7 +15,7 @@ const fetchPhotosError = error => {
   return {type: FETCH_PHOTOS_ERROR, error};
 };
 
-const fetchPhotos = () => {
+export const fetchPhotos = () => {
     return async dispatch => {
         try {
             const response = await axiosAPI.get("photos");
