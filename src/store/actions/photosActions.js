@@ -5,7 +5,8 @@ import {
     FETCH_PHOTOS_ERROR,
     FETCH_PHOTOS_SUCCESS,
     ADD_PHOTO_ERROR,
-
+    FETCH_USER_PHOTOS_ERROR,
+    FETCH_USER_PHOTOS_SUCCESS,
 } from "../actionTypes";
 
 const fetchPhotosSuccess = value => {
@@ -39,6 +40,25 @@ export const addPhoto = (data) => {
             dispatch(push("/"));
         } catch (e) {
             dispatch(addPhotoError(e.response.data));
+        }
+    };
+};
+
+const fetchUserPhotosSuccess = value => {
+    return {type: FETCH_USER_PHOTOS_SUCCESS, value};
+};
+
+const fetchUserPhotosError = error => {
+    return {type: FETCH_USER_PHOTOS_ERROR, error};
+};
+
+export const fetchUserPhotos = id => {
+    return async dispatch => {
+        try {
+            const response = await axiosAPI.get("photos?user=" + id);
+            dispatch(fetchUserPhotosSuccess(response.data));
+        } catch (e) {
+            dispatch(fetchUserPhotosError(e));
         }
     };
 };

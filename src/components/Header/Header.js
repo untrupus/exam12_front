@@ -52,6 +52,7 @@ const Header = () => {
                             <Link component={RouterLink} className={classes.logo} to="/signup" id="up"> Sign up</Link>
                         </Button> :
                         <UserMenu
+                            user={user.user._id}
                             name={user.user.displayName}
                             image={user.user.avatarImage}
                             fbImage={user.user.fbAvatar}

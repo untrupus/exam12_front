@@ -87,6 +87,9 @@ const UserMenu = props => {
                 <MenuItem onClick={handleClose}>
                     <Link component={RouterLink} className={classes.history} to="/addphoto">Add Photo</Link>
                 </MenuItem>
+                <MenuItem onClick={handleClose}>
+                    <Link component={RouterLink} className={classes.history} to={"/users/" + props.user}>My Photos</Link>
+                </MenuItem>
                 <MenuItem onClick={logout}>Logout</MenuItem>
             </Menu>
         </div>

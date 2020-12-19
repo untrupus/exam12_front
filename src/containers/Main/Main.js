@@ -30,6 +30,7 @@ const Main = () => {
                 title={photo.title}
                 src={'http://localhost:8000/uploads/' + photo.image}
                 author={photo.user.displayName}
+                user={photo.user._id}
             />
         )
     });

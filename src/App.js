@@ -5,6 +5,7 @@ import SignUp from "./containers/SignUp/SignUp";
 import SignIn from "./containers/SignIn/SignIn";
 import Main from "./containers/Main/Main";
 import AddPhoto from "./containers/AddPhoto/AddPhoto";
+import MyPhotos from "./containers/MyPhotos/MyPhotos";
 import {useSelector} from "react-redux";
 
 const ProtectedRoute = ({isAllowed, ...props}) => {
@@ -24,6 +25,12 @@ function App() {
                     path="/addphoto"
                     exact
                     component={AddPhoto}
+                    isAllowed={user}
+                />
+                <ProtectedRoute
+                    path="/users/:id"
+                    exact
+                    component={MyPhotos}
                     isAllowed={user}
                 />
                 <Route render={() => <h1>404</h1>}/>

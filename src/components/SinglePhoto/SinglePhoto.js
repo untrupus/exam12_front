@@ -1,5 +1,7 @@
 import React from 'react';
 import {makeStyles} from '@material-ui/core/styles';
+import {Link as RouterLink} from "react-router-dom";
+import Link from '@material-ui/core/Link';
 
 const useStyles = makeStyles((theme) => ({
     card: {
@@ -20,7 +22,10 @@ const SinglePhoto = props => {
         <div className={classes.card}>
             <img src={props.src} alt="nature" className={classes.img}/>
             <h3>{props.title}</h3>
-            <p><b>Author: </b>{props.author}</p>
+            <p><b>Author: </b>
+                <Link component={RouterLink} className={classes.history}
+                      to={"/users/" + props.user}>{props.author}</Link>
+            </p>
         </div>
     );
 };
