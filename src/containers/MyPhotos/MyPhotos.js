@@ -40,12 +40,12 @@ const MyPhotos = props => {
                 src={'http://localhost:8000/uploads/' + photo.image}
                 author={photo.user.displayName}
                 user={photo.user._id}
-                permit={user.user._id === props.match.params.id}
+                permit={user && user.user._id === props.match.params.id}
             />
         )
     });
     let addBtn;
-    if (user.user._id === props.match.params.id) {
+    if (user && user.user._id === props.match.params.id) {
         addBtn = (
             <div className={classes.link}>
                 <Link component={RouterLink}  to="/addphoto">Add Photo</Link>

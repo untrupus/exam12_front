@@ -37,12 +37,7 @@ function App() {
                     component={AddPhoto}
                     isAllowed={user}
                 />
-                <ProtectedRoute
-                    path="/users/:id"
-                    exact
-                    component={MyPhotos}
-                    isAllowed={user}
-                />
+                <Route path="/users/:id" exact component={MyPhotos}/>
                 <Route render={() => <h1>404</h1>}/>
             </Switch>
         </div>

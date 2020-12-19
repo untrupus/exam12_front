@@ -26,8 +26,8 @@ const useStyles = makeStyles((theme) => ({
     close: {
         color: '#ffffff',
         position: "absolute",
-        top: '10px',
-        right: '10px'
+        top: '-18px',
+        right: '-18px'
     }
 }));
 
