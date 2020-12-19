@@ -12,7 +12,11 @@ const useStyles = makeStyles(() => ({
         border: '1px solid black',
         borderRadius: '5px',
         padding: '10px',
-        marginBottom: '15px'
+        marginBottom: '20px',
+        transition: 'all ease-in-out 0.3s',
+        '&:hover': {
+            transform: 'translateY(-10px)',
+        }
     },
     img: {
         height: '200px',
